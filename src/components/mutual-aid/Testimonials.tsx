@@ -16,7 +16,7 @@ const testimonials = [
     name: 'James Chen',
     role: 'Emergency Support Recipient',
     quote:
-      'When my apartment flooded, I didn't know where to turn. Within hours, the mutual aid network had me in temporary housing and helped me rebuild. They didn't just help—they cared.',
+      'When my apartment flooded, I didn\'t know where to turn. Within hours, the mutual aid network had me in temporary housing and helped me rebuild. They didn\'t just help—they cared.',
     image: '🌟',
     color: '#f6b025',
   },
