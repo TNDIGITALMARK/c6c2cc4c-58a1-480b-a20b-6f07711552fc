@@ -1,59 +1,88 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================
+   MUTUAL AID DESIGN SYSTEM
+   Playful, modern, community-focused design
+   Primary: Dark Blue #004467
+   Accent: Yellow #f6b025
+   Supporting: White, Black, Light Grey-Blue
+   ============================================ */
 
 :root {
-  /* Pure white background with crisp black text */
+  /* ========== FONT SYSTEM ========== */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Courier New', monospace;
+
+  /* ========== MUTUAL AID COLOR PALETTE ========== */
+  /* Primary: Dark Blue #004467 (HSL: 199, 100%, 20%) */
+  --primary: 199 100% 20%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Accent: Yellow #f6b025 (HSL: 41, 91%, 56%) */
+  --accent: 41 91% 56%;
+  --accent-foreground: 199 100% 20%;
+
+  /* Background: Clean White */
   --background: 0 0% 100%;
   --foreground: 0 0% 0%;
 
-  /* Clean white cards with black text */
+  /* Card surfaces: White with subtle elevation */
   --card: 0 0% 100%;
   --card-foreground: 0 0% 0%;
 
-  /* Popovers with white background */
+  /* Secondary: Light grey-blue (HSL: 199, 30%, 94%) */
+  --secondary: 199 30% 94%;
+  --secondary-foreground: 199 100% 20%;
+
+  /* Muted elements: Light grey-blue */
+  --muted: 199 20% 92%;
+  --muted-foreground: 199 15% 40%;
+
+  /* Popovers */
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 0%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
-
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
-
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
-
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
-
-  /* Destructive: Clean red */
+  /* Destructive states */
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders and inputs */
+  --border: 199 15% 85%;
+  --input: 199 15% 85%;
+  --ring: 199 100% 20%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border radius for playful, modern feel */
+  --radius: 0.75rem;
 
-  /* Sidebar: Clean white with black text */
+  /* Sidebar (if needed) */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-foreground: 199 100% 20%;
+  --sidebar-primary: 199 100% 20%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent: 199 30% 94%;
+  --sidebar-accent-foreground: 199 100% 20%;
+  --sidebar-border: 199 15% 85%;
+  --sidebar-ring: 199 100% 20%;
+
+  /* ========== CUSTOM MUTUAL AID COLORS ========== */
+  --color-dark-blue: 199 100% 20%;
+  --color-yellow: 41 91% 56%;
+  --color-light-blue-grey: 199 30% 94%;
+  --color-text-dark: 0 0% 0%;
+  --color-text-muted: 199 15% 40%;
+
+  /* ========== SHADOWS ========== */
+  --shadow-sm: 0 1px 2px 0 rgb(0 68 103 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 68 103 / 0.1), 0 2px 4px -2px rgb(0 68 103 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 68 103 / 0.1), 0 4px 6px -4px rgb(0 68 103 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 68 103 / 0.1), 0 8px 10px -6px rgb(0 68 103 / 0.1);
+
+  /* ========== TRANSITIONS ========== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
 .dark {
@@ -164,40 +193,335 @@ All colors MUST be HSL.
   }
 }
 
+/* ========== UNIVERSAL RESET ========== */
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   border-color: hsl(var(--border));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== BASE TYPOGRAPHY ========== */
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
+/* ========== HEADING HIERARCHY ========== */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: hsl(var(--primary));
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 1.125rem;
   font-weight: 600;
-  letter-spacing: -0.025em;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ========== TEXT ELEMENTS ========== */
+p {
+  margin-bottom: 1rem;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color var(--transition-base);
 }
 
-/* Subtle shadows for depth */
+a:hover {
+  color: hsl(var(--accent));
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ========== BUTTON DEFAULTS ========== */
+button {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all var(--transition-base);
+}
+
+/* ========== FORM ELEMENTS ========== */
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  border: 2px solid hsl(var(--input));
+  border-radius: var(--radius);
+  padding: 0.625rem 0.875rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+label {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* ========== GRADIENT CTA BUTTON ========== */
+.gradient-cta {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  color: hsl(var(--primary-foreground));
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-size: 1.125rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.gradient-cta:hover::before {
+  opacity: 1;
+}
+
+.gradient-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gradient-cta span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== UTILITY SHADOWS ========== */
 .shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  box-shadow: var(--shadow-sm);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* ========== MOBILE OPTIMIZATIONS ========== */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile for better performance */
+  .animate-float {
+    animation-duration: 10s;
+  }
+
+  /* Optimize font sizes for mobile readability */
+  body {
+    font-size: 15px;
+  }
+
+  /* Ensure touch targets are adequately sized */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Reduce parallax effects on mobile */
+  .parallax {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further optimize for small screens */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Ensure adequate padding on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ========== ACCESSIBILITY ========== */
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    border: 2px solid hsl(var(--foreground));
+  }
+
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  /* Hide non-essential elements when printing */
+  header,
+  footer,
+  .no-print {
+    display: none;
+  }
+
+  /* Ensure good print contrast */
+  body {
+    background: white;
+    color: black;
+  }
+
+  /* Avoid page breaks inside elements */
+  section,
+  div {
+    page-break-inside: avoid;
+  }
 }
