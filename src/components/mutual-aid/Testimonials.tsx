@@ -32,7 +32,7 @@ const testimonials = [
     name: 'David Kim',
     role: 'Volunteer Coordinator',
     quote:
-      'What started as helping with a food drive turned into building a neighborhood support network. We've created something lasting—real community that shows up for each other.',
+      'What started as helping with a food drive turned into building a neighborhood support network. We\'ve created something lasting—real community that shows up for each other.',
     image: '🤝',
     color: '#f6b025',
   },
