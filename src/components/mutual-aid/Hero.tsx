@@ -40,9 +40,7 @@ export function Hero() {
 
   // Parallax transforms
   const parallaxTransform = (multiplier: number) => ({
-    transform: `translate(${mousePosition.x * multiplier}px, ${
-      mousePosition.y * multiplier
-px) translateY(${scrollY * 0.3}px)`,
+    transform: `translate(${mousePosition.x * multiplier}px, ${mousePosition.y * multiplier}px) translateY(${scrollY * 0.3}px)`,
   });
 
   return (

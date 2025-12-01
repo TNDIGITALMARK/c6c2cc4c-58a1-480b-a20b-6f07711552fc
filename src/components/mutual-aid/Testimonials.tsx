@@ -8,7 +8,7 @@ const testimonials = [
     name: 'Sarah Martinez',
     role: 'Food Distribution Organizer',
     quote:
-      'I started by volunteering one Saturday morning. Three years later, I've helped organize food distribution for over 500 families. The connections I've made are priceless.',
+      'I started by volunteering one Saturday morning. Three years later, I\'ve helped organize food distribution for over 500 families. The connections I\'ve made are priceless.',
     image: '🌻',
     color: '#004467',
   },

@@ -30,7 +30,7 @@ const mutualAidTypes = [
     title: 'Emergency Relief',
     shortDesc: 'Rapid response to crises',
     fullDesc:
-      'When disaster strikes, we mobilize quickly. Medical emergencies, natural disasters, or personal crises—we're there for each other.',
+      'When disaster strikes, we mobilize quickly. Medical emergencies, natural disasters, or personal crises—we\'re there for each other.',
     stats: '24/7 emergency network',
     color: '#004467',
   },
